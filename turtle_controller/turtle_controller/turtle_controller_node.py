@@ -12,8 +12,8 @@ class TurtleController(Node):
 
     def _timer_callback(self) -> None:
         output_pose = Twist()
-        output_pose.linear.x = 5.0
-        output_pose.angular.y = 3.14
+        # output_pose.linear.x = 5.0
+        output_pose.angular.z = 3.14
         self.get_logger().info(f"published {output_pose}")
         self._turtle_publisher.publish(output_pose)
 
