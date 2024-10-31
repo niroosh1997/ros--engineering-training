@@ -9,3 +9,28 @@ repos:
     rev: 22.10.0
     hooks:
     -   id: black
+-   repo: https://github.com/asottile/pyupgrade
+    rev: v3.19.0
+    hooks:
+    -   id: pyupgrade
+-   repo: https://github.com/PyCQA/flake8.git
+    rev: 7.1.1
+    hooks:
+    -   id: flake8
+        name: flake8
+        description: '`flake8` is a command-line utility for enforcing style consistency across Python projects.'
+        entry: flake8
+        language: python
+        types: [python]
+        require_serial: true
+-   repo: https://github.com/PyCQA/isort.git
+    rev: 5.13.2
+    hooks:
+    -   id: isort
+        name: isort
+        entry: isort
+        require_serial: true
+        language: python
+        types_or: [cython, pyi, python]
+        args: ['--filter-files']
+        minimum_pre_commit_version: '2.9.2'
