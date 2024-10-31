@@ -1,2 +1,2 @@
 def calculate_target_theta():
-    pass
+    position_turtle = 5
