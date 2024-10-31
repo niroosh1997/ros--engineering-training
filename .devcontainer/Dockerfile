@@ -16,7 +16,8 @@ RUN groupadd --gid $USER_GID $USERNAME \
     && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME \
     && chmod 0440 /etc/sudoers.d/$USERNAME
 RUN apt-get update && apt-get upgrade -y
-RUN apt-get install -y python3-pip ssh
+RUN apt-get install -y python3-pip ssh 
+RUN apt-get install ros-foxy-turtlesim ~nros-foxy-rqt*
 ENV SHELL /bin/bash
 RUN pip3 install pre-commit
 
