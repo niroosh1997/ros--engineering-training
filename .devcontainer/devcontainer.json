@@ -1,0 +1,16 @@
+{
+    "name": "ROS devcontainer for vscode",
+    "dockerComposeFile": [
+        "docker-compose.yml"
+    ],
+    "service": "workspace",
+    "workspaceFolder": "/workspace",
+    "shutdownAction": "stopCompose",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-python.python",
+            ]
+        }
+    }
+}
