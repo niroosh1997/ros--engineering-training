@@ -17,7 +17,7 @@ RUN groupadd --gid $USER_GID $USERNAME \
     && chmod 0440 /etc/sudoers.d/$USERNAME
 RUN apt-get update && apt-get upgrade -y
 RUN apt-get install -y python3-pip ssh 
-RUN apt-get install ros-foxy-turtlesim ~nros-foxy-rqt*
+RUN apt-get install -y ros-humble-turtlesim ~nros-humble-rqt*
 ENV SHELL /bin/bash
 RUN pip3 install pre-commit
 
@@ -27,4 +27,9 @@ RUN pip3 install pre-commit
 
 # [Optional] Set the default user. Omit if you want to keep the default as root.
 USER $USERNAME
+
+
+
+RUN echo 'source /opt/ros/humble/setup.sh' > /home/$(whoami)/.bashrc
+
 CMD ["/bin/bash"]
