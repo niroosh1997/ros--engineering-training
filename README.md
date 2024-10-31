@@ -74,6 +74,3 @@ Documentation: Does the report explain the approach, techniques used, and challe
 
 
 Note: Students are encouraged to use existing ROS2 libraries for image handling and may reference documentation for OpenCV and ROS2. This assignment requires a good understanding of image processing and basic control systems.
-
-
-

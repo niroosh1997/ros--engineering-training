@@ -15,7 +15,8 @@
             "extensions":[
                 "donjayamanne.python-extension-pack",
                 "eamodio.gitlens",
-                "ms-iot.vscode-ros"
+                "ms-iot.vscode-ros",
+                "ms-python.black-formatter"
             ]
         }
     },

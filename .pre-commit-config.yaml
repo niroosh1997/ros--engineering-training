@@ -23,6 +23,7 @@ repos:
         language: python
         types: [python]
         require_serial: true
+        args: ['--max-line=100']
 -   repo: https://github.com/PyCQA/isort.git
     rev: 5.13.2
     hooks:
