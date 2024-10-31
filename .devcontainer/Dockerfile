@@ -18,6 +18,7 @@ RUN groupadd --gid $USER_GID $USERNAME \
 RUN apt-get update && apt-get upgrade -y
 RUN apt-get install -y python3-pip ssh
 ENV SHELL /bin/bash
+RUN pip3 install pre-commit
 
 # ********************************************************
 # * Anything else you want to do like clean up goes here *
