@@ -4,6 +4,7 @@
   "git.confirmSync": false,
   "git.autofetch": true,
   "remote.autoForwardPortsSource": "hybrid",
+  "explorer.excludeGitIgnore": true,
   "editor.defaultFormatter": "ms-python.black-formatter",
   "black-formatter.args": ["--line-length", "100"],
   "[python]": {
