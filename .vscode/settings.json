@@ -1,10 +1,15 @@
 {
   "ros.distro": "humble",
   "editor.formatOnSave": true,
+  "git.confirmSync": false,
+  "git.autofetch": true,
+  "remote.autoForwardPortsSource": "hybrid",
+  "editor.defaultFormatter": "ms-python.black-formatter",
+  "black-formatter.args": ["--line-length", "100"],
   "[python]": {
-    "editor.defaultFormatter": "ms-python.autopep8"
+    "editor.defaultFormatter": "ms-python.black-formatter"
   },
-  "[json]": {
+  "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   }
 }
