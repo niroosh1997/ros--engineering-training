@@ -1,9 +1,7 @@
 import math
 
 from turtle_controller.direction_calculation import (
-    calculate_target_theta_of_angular,
-    calculate_target_theta_of_velocity,
-)
+    calculate_target_theta_of_angular, calculate_target_theta_of_velocity)
 
 
 def test_when_deg_in_first_square_then_taget_theta_is_like_calculation():
