@@ -18,8 +18,8 @@ class MovmentPid:
         )
         direction_x, direction_y = math.cos(direction_theta), math.sin(direction_theta)
         error_x = (target_x - current_x) / self._max_error
-        error_y = (target_x - current_x) / self._max_error
+        error_y = (target_y - current_y) / self._max_error
         return (
-            direction_x * self._pid_x.calculate_output(error_x),
-            direction_y * self._pid_y.calculate_output(error_y),
+            direction_x * abs(self._pid_x.calculate_output(error_x)),
+            direction_y * abs(self._pid_y.calculate_output(error_y)),
         )
