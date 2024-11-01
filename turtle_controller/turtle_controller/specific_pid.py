@@ -1,7 +1,6 @@
 import math
 
-from turtle_controller.direction_calculation import \
-    calculate_target_theta_of_velocity
+from turtle_controller.direction_calculation import calculate_target_theta_of_velocity
 from turtle_controller.pid import Pid
 
 
@@ -18,8 +17,8 @@ class MovmentPid:
             current_x, current_y, target_x, target_y
         )
         direction_x, direction_y = math.cos(direction_theta), math.sin(direction_theta)
-        error_x = target_x - current_x / self._max_error
-        error_y = target_x - current_x / self._max_error
+        error_x = (target_x - current_x) / self._max_error
+        error_y = (target_x - current_x) / self._max_error
         return (
             direction_x * self._pid_x.calculate_output(error_x),
             direction_y * self._pid_y.calculate_output(error_y),
