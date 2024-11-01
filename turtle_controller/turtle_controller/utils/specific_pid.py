@@ -1,7 +1,7 @@
 import math
 
-from turtle_controller.direction_calculation import calculate_target_theta_of_velocity
-from turtle_controller.pid import Pid
+from turtle_controller.utils.direction_calculation import calculate_target_theta_of_velocity
+from turtle_controller.utils.pid import Pid
 
 
 class MovmentPid:

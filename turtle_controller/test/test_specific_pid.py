@@ -1,5 +1,5 @@
 import math
-from turtle_controller.specific_pid import MovmentPid
+from turtle_controller.utils.specific_pid import MovmentPid
 
 
 def test_when_try_to_get_from_zero_zero_to_bigger_than_max_error_then_returns_half_p_multiple_by_sqrt2():

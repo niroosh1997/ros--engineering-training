@@ -1,4 +1,4 @@
-from turtle_controller.pid import Pid
+from turtle_controller.utils.pid import Pid
 
 
 def test_when_error_is_zero_then_pid_returns_zero():

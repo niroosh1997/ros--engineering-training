@@ -19,7 +19,7 @@ def calculate_target_theta_of_velocity(
 ):
     delta_y = target_y - current_y
     delta_x = target_x - current_x
-    if -0.001 <= delta_x and delta_x <= 0.001 and delta_y > 0:
+    if -0.001 <= delta_x and delta_x <= 0.001 and delta_y >= 0:
         return math.pi / 4
     if -0.001 <= delta_x and delta_x <= 0.001 and delta_y < 0:
         return -math.pi / 4
