@@ -9,7 +9,8 @@ def test_when_deg_in_first_square_then_taget_theta_is_like_calculation():
     target_x = 1
     target_y = math.sqrt(3)
     taget_theta = calculate_target_theta(currect_x, currect_y, target_x, target_y)
-    assert round(taget_theta,4) == round(0.8333333 * math.pi,4)
+    assert round(taget_theta, 4) == round(0.8333333 * math.pi, 4)
+
 
 def test_when_deg_in_forth_square_then_taget_theta_is_like_calculation():
     currect_x = 0.0
@@ -17,7 +18,8 @@ def test_when_deg_in_forth_square_then_taget_theta_is_like_calculation():
     target_x = 1.0
     target_y = -math.sqrt(3)
     taget_theta = calculate_target_theta(currect_x, currect_y, target_x, target_y)
-    assert round(taget_theta,4) == round(0.166666667 * math.pi,4)
+    assert round(taget_theta, 4) == round(0.166666667 * math.pi, 4)
+
 
 def test_when_deg_in_second_square_then_taget_theta_is_like_calculation():
     currect_x = 0.0
@@ -25,7 +27,8 @@ def test_when_deg_in_second_square_then_taget_theta_is_like_calculation():
     target_x = -1.0
     target_y = math.sqrt(3)
     taget_theta = calculate_target_theta(currect_x, currect_y, target_x, target_y)
-    assert round(taget_theta,4) == round(-0.8333333 * math.pi,4)
+    assert round(taget_theta, 4) == round(-0.8333333 * math.pi, 4)
+
 
 def test_when_deg_in_third_square_then_taget_theta_is_like_calculation():
     currect_x = 0.0
@@ -33,5 +36,13 @@ def test_when_deg_in_third_square_then_taget_theta_is_like_calculation():
     target_x = -1.0
     target_y = -math.sqrt(3)
     taget_theta = calculate_target_theta(currect_x, currect_y, target_x, target_y)
-    assert round(taget_theta,4) == round(-0.166666667 * math.pi,4)
+    assert round(taget_theta, 4) == round(-0.166666667 * math.pi, 4)
 
+
+def test_when_current_not_0_0_then_use_delta_in_positions_in_calculations():
+    currect_x = -1
+    currect_y = -math.sqrt(3)
+    target_x = 0
+    target_y = 0
+    taget_theta = calculate_target_theta(currect_x, currect_y, target_x, target_y)
+    assert round(taget_theta, 4) == round(0.8333333 * math.pi, 4)

@@ -1,3 +1,10 @@
 {
-    "ros.distro": "humble",
+  "ros.distro": "humble",
+  "editor.formatOnSave": true,
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.autopep8"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
