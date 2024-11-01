@@ -19,6 +19,8 @@ def calculate_target_theta_of_velocity(
 ):
     delta_y = target_y - current_y
     delta_x = target_x - current_x
+    if delta_x == 0:
+        return math.pi / 4
     tan_target = (delta_y) / (delta_x)
     if target_y >= 0:
         return math.atan(tan_target)
