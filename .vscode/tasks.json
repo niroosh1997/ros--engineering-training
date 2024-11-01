@@ -6,7 +6,7 @@
         {
             "label": "tests",
             "type": "shell",
-            "command": "pytest-3",
+            "command": "pytest-3 -s",
             "problemMatcher": []
         }
     ]
