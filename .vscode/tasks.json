@@ -5,8 +5,9 @@
     "tasks": [
         {
             "label": "tests",
-            "type":"shell",
+            "type": "shell",
             "command": "pytest-3",
+            "problemMatcher": []
         }
     ]
 }
