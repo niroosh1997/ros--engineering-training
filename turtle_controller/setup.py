@@ -20,6 +20,7 @@ setup(
     entry_points={
         "console_scripts": [
             "turtle_controller = turtle_controller.turtle_controller_node:main",
+            "image_publisher = turtle_controller.image_publisher_node:main",
         ],
     },
 )

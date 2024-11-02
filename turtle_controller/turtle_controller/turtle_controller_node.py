@@ -27,22 +27,24 @@ class TurtleController(Node):
         output_pose.linear.x, output_pose.linear.y = self._movement_pid.go_to(
             self._current_pos.x, self._current_pos.y, self._go_to_pos.x, self._go_to_pos.y
         )
-        self.get_logger().info(f"received {self._current_pos.x} {self._current_pos.y}")
-        self.get_logger().info(f"published {output_pose.linear.x} {output_pose.linear.y}")
+        # self.get_logger().info(f"received {self._current_pos.x} {self._current_pos.y}")
+        # self.get_logger().info(f"published {output_pose.linear.x} {output_pose.linear.y}")
         self._turtle_publisher.publish(output_pose)
 
     def _handle_turtle_pos(self, turtle_pos: Pose):
         self._current_pos = turtle_pos
 
     def _handle_go_to_pos(self, turtle_pos: Pose):
-        self.get_logger().info(f"receive new targer: {turtle_pos.x} {turtle_pos.y}")
+        self.get_logger().info(f"receive new target: {turtle_pos.x} {turtle_pos.y}")
         self._go_to_pos = turtle_pos
 
     def _handle_image(self, image: Image):
         x, y = center_of_ball(image)
+        self.get_logger().info(f"receive new targer: {x} {y}")
+
         targt_pos = Pose()
-        targt_pos.x = x
-        targt_pos.y = y
+        targt_pos.x = x * 10
+        targt_pos.y = 10 - y * 10
         self._go_to_pos = targt_pos
 
 
