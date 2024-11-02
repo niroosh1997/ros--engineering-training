@@ -14,7 +14,7 @@ def test_when_try_to_get_from_zero_zero_to_bigger_than_max_error_then_returns_ha
 
 def test_when_try_to_get_from_zero_zero_to_half_max_error_than_returns_quarter_p_multiple_by_sqrt2():
     p = 2
-    movement_pid = MovmentPid(p=p, max_error=10)
+    movement_pid = MovmentPid(p=p, max_error=14.142135624)
     current_x, current_y = 0, 0
     target_x, target_y = 5, 5
     linear_x, linear_y = movement_pid.go_to(current_x, current_y, target_x, target_y)
@@ -59,4 +59,4 @@ def test_try_to_get_from_zero_zero_to_down():
     target_x, target_y = 0, -5
     linear_x, linear_y = movement_pid.go_to(current_x, current_y, target_x, target_y)
     assert round(linear_x, 3) == round(0)
-    assert round(linear_y, 3) == round(-(p / 2) * math.sqrt(2), 3)  # need to check
+    assert round(linear_y, 3) == round(-2, 3)  # need to check

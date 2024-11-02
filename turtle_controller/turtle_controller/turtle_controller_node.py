@@ -18,18 +18,17 @@ class TurtleController(Node):
 
         self._timer = self.create_timer(0.1, self._timer_callback)
 
-        self._movement_pid = MovmentPid(p=10, i=0.2, max_error=10, sample_time=0.1)
+        self._movement_pid = MovmentPid(p=40, i=0, max_error=10, sample_time=0.1)
         self._current_pos = Pose()
         self._go_to_pos = Pose()
 
     def _timer_callback(self) -> None:
-        output_pose = Twist()
-        output_pose.linear.x, output_pose.linear.y = self._movement_pid.go_to(
+        output_twist = Twist()
+        output_twist.linear.x, output_twist.linear.y = self._movement_pid.go_to(
             self._current_pos.x, self._current_pos.y, self._go_to_pos.x, self._go_to_pos.y
         )
-        # self.get_logger().info(f"received {self._current_pos.x} {self._current_pos.y}")
-        # self.get_logger().info(f"published {output_pose.linear.x} {output_pose.linear.y}")
-        self._turtle_publisher.publish(output_pose)
+        self.get_logger().info(f"publish: {output_twist.linear.x} {output_twist.linear.y}")
+        self._turtle_publisher.publish(output_twist)
 
     def _handle_turtle_pos(self, turtle_pos: Pose):
         self._current_pos = turtle_pos
@@ -40,11 +39,11 @@ class TurtleController(Node):
 
     def _handle_image(self, image: Image):
         x, y = center_of_ball(image)
-        self.get_logger().info(f"receive new targer: {x} {y}")
 
         targt_pos = Pose()
         targt_pos.x = x * 10
         targt_pos.y = 10 - y * 10
+        self.get_logger().info(f"receive new targer: {targt_pos.x} {targt_pos.y }")
         self._go_to_pos = targt_pos
 
 
