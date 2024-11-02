@@ -1,5 +1,6 @@
 import rclpy
 from geometry_msgs.msg import Twist
+from turtle_controller.image_vision.ball_finding import center_of_ball
 from turtlesim.msg import Pose
 from rclpy.node import Node
 from sensor_msgs.msg import Image
@@ -13,7 +14,7 @@ class TurtleController(Node):
         self._turtle_publisher = self.create_publisher(Twist, "/turtle1/cmd_vel", 10)
         self.create_subscription(Pose, "/turtle1/pose", self._handle_turtle_pos, 10)
         self.create_subscription(Pose, "/turtle_controller/pose", self._handle_go_to_pos, 10)
-        self.create_subscription(Image, "/camera/image_raw", self._handle_image)
+        self.create_subscription(Image, "/camera/image_raw", self._handle_image, 10)
 
         self._timer = self.create_timer(0.1, self._timer_callback)
 
@@ -34,10 +35,15 @@ class TurtleController(Node):
         self._current_pos = turtle_pos
 
     def _handle_go_to_pos(self, turtle_pos: Pose):
+        self.get_logger().info(f"receive new targer: {turtle_pos.x} {turtle_pos.y}")
         self._go_to_pos = turtle_pos
 
-    def _handle_image(image: Image):
-        pass
+    def _handle_image(self, image: Image):
+        x, y = center_of_ball(image)
+        targt_pos = Pose()
+        targt_pos.x = x
+        targt_pos.y = y
+        self._go_to_pos = targt_pos
 
 
 def main(args=None):

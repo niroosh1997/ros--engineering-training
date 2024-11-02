@@ -20,7 +20,6 @@ setup(
     entry_points={
         "console_scripts": [
             "turtle_controller = turtle_controller.turtle_controller_node:main",
-            "turtle_image = turtle_controller.image_vision.ball_finding:main",
         ],
     },
 )
