@@ -5,7 +5,7 @@ import numpy as np
 from cv_bridge import CvBridge
 
 
-def center_of_ball(image: Image) -> tuple[float, float]:
+def center_of_ball_with_centuer_algorithm(image: Image) -> tuple[float, float]:
     down_width = 640
     down_height = 480
     down_points = (down_width, down_height)

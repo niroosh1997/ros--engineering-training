@@ -25,9 +25,6 @@ class MovmentPid:
             current_x, current_y, target_x, target_y
         )
         direction_x, direction_y = math.cos(direction_theta), math.sin(direction_theta)
-        print(f"{current_x, current_y, target_x, target_y}")
-        print(f"{direction_theta}")
-        print(f"{direction_x, direction_y}")
         error = self._calculate_distance_error(current_x, current_y, target_x, target_y)
         calculated_speed_size = abs(self._pid.calculate_output(error))
         return (
