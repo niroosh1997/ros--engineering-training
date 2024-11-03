@@ -18,7 +18,7 @@ class TurtleController(Node):
 
         self._timer = self.create_timer(0.1, self._timer_callback)
 
-        self._movement_pid = MovmentPid(p=140, i=400, max_error=10, sample_time=0.1)
+        self._movement_pid = MovmentPid(p=80, i=80, max_error=10, sample_time=0.1)
         self._current_pos = Pose()
         self._go_to_pos = Pose()
 
