@@ -17,9 +17,9 @@ RUN groupadd --gid $USER_GID $USERNAME \
     && chmod 0440 /etc/sudoers.d/$USERNAME
 RUN apt-get update && apt-get upgrade -y
 RUN apt-get install -y python3-pip ssh
-RUN apt-get install -y ros-humble-turtlesim ~nros-humble-rqt*
+RUN apt-get install -y ros-humble-turtlesim ~nros-humble-rqt* ros-humble-rviz2
 ENV SHELL /bin/bash
-RUN pip3 install pre-commit
+RUN pip3 install pre-commit opencv-python
 
 # ********************************************************
 # * Anything else you want to do like clean up goes here *
