@@ -22,7 +22,7 @@ class MovmentPid:
         return error
 
     def _calculate_angular_error(self, current_theta: float, direction_theta: float) -> float:
-        return (direction_theta - current_theta) / math.pi * 2
+        return (direction_theta - current_theta) / math.pi
 
     def go_to(
         self,
