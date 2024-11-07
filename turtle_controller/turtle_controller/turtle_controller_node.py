@@ -21,6 +21,8 @@ class TurtleController(Node):
         self._movement_pid = MovmentPid(p_x=80, p_z=80, i=80, max_error=10, sample_time=0.1)
         self._current_pos = Pose()
         self._go_to_pos = Pose()
+        self._go_to_pos.x = 10.0
+        self._go_to_pos.y = 5.544444561004639
 
     def _timer_callback(self) -> None:
         output_twist = Twist()

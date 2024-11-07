@@ -12,7 +12,7 @@ def test_when_deg_in_first_square_then_taget_theta_is_like_calculation():
     target_x = 1
     target_y = math.sqrt(3)
     taget_theta = calculate_target_theta_of_angular(currect_x, currect_y, target_x, target_y)
-    assert round(taget_theta, 4) == round(0.8333333 * math.pi, 4)
+    assert round(taget_theta, 4) == round(0.3333333 * math.pi, 4)
 
 
 def test_when_deg_in_forth_square_then_taget_theta_is_like_calculation():
@@ -21,7 +21,7 @@ def test_when_deg_in_forth_square_then_taget_theta_is_like_calculation():
     target_x = 1.0
     target_y = -math.sqrt(3)
     taget_theta = calculate_target_theta_of_angular(currect_x, currect_y, target_x, target_y)
-    assert round(taget_theta, 4) == round(0.166666667 * math.pi, 4)
+    assert round(taget_theta, 4) == round(-0.3333333 * math.pi, 4)
 
 
 def test_when_deg_in_second_square_then_taget_theta_is_like_calculation():
@@ -30,7 +30,7 @@ def test_when_deg_in_second_square_then_taget_theta_is_like_calculation():
     target_x = -1.0
     target_y = math.sqrt(3)
     taget_theta = calculate_target_theta_of_angular(currect_x, currect_y, target_x, target_y)
-    assert round(taget_theta, 4) == round(-0.8333333 * math.pi, 4)
+    assert round(taget_theta, 4) == round(0.6666666667 * math.pi, 4)
 
 
 def test_when_deg_in_third_square_then_taget_theta_is_like_calculation():
@@ -39,7 +39,7 @@ def test_when_deg_in_third_square_then_taget_theta_is_like_calculation():
     target_x = -1.0
     target_y = -math.sqrt(3)
     taget_theta = calculate_target_theta_of_angular(currect_x, currect_y, target_x, target_y)
-    assert round(taget_theta, 4) == round(-0.166666667 * math.pi, 4)
+    assert round(taget_theta, 4) == round(-0.666666667 * math.pi, 4)
 
 
 def test_when_current_not_0_0_then_use_delta_in_positions_in_calculations():
@@ -48,16 +48,25 @@ def test_when_current_not_0_0_then_use_delta_in_positions_in_calculations():
     target_x = 0
     target_y = 0
     taget_theta = calculate_target_theta_of_angular(currect_x, currect_y, target_x, target_y)
-    assert round(taget_theta, 4) == round(0.8333333 * math.pi, 4)
+    assert round(taget_theta, 4) == round(0.3333333333 * math.pi, 4)
 
 
-def test_when_delta_y_is_zero_and_x_is_not_then_return_target_theta_pi():
+def test_when_delta_x_is_zero_and_y_is_positive_then_return_target_theta_is_pi_divide_by_2():
     currect_x = 0
     currect_y = 0
     target_x = 0
     target_y = 5
     taget_theta = calculate_target_theta_of_angular(currect_x, currect_y, target_x, target_y)
-    assert round(taget_theta, 4) == round(math.pi, 4)
+    assert round(taget_theta, 4) == round(math.pi / 2, 4)
+
+
+def test_when_delta_x_is_zero_and_y_is_negative_then_return_target_theta_is_minus_pi_divide_by_2():
+    currect_x = 0
+    currect_y = 0
+    target_x = 0
+    target_y = -5
+    taget_theta = calculate_target_theta_of_angular(currect_x, currect_y, target_x, target_y)
+    assert round(taget_theta, 4) == round(-math.pi / 2, 4)
 
 
 def test_when_calculate_velocity_theta_in_first_square_then_output_accordingly():

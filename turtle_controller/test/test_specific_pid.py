@@ -8,7 +8,7 @@ def test_when_try_to_get_from_zero_zero_to_bigger_than_max_error_then_returns_ha
     movement_pid = MovmentPid(p_x=p_x, p_z=p_z, max_error=1)
     current_x, current_y = 0, 0
     target_x, target_y = 5, 0
-    current_theta = math.pi * 0.5
+    current_theta = 0
     linear_x, angular_z = movement_pid.go_to(
         current_x, current_y, current_theta, target_x, target_y
     )

@@ -32,6 +32,7 @@ class MovmentPid:
         direction_theta = calculate_target_theta_of_angular(
             current_x, current_y, target_x, target_y
         )
+        print(f"{current_x} {current_y} {current_theta} {target_x} {target_y} {direction_theta}")
         error_distance = self._calculate_distance_error(current_x, current_y, target_x, target_y)
         error_angular = (direction_theta - current_theta) / math.pi * 2
         calculated_speed_size = abs(self._distance_pid.calculate_output(error_distance))
