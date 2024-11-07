@@ -51,6 +51,15 @@ def test_when_current_not_0_0_then_use_delta_in_positions_in_calculations():
     assert round(taget_theta, 4) == round(0.8333333 * math.pi, 4)
 
 
+def test_when_delta_y_is_zero_and_x_is_not_then_return_target_theta_pi():
+    currect_x = 0
+    currect_y = 0
+    target_x = 0
+    target_y = 5
+    taget_theta = calculate_target_theta_of_angular(currect_x, currect_y, target_x, target_y)
+    assert round(taget_theta, 4) == round(math.pi, 4)
+
+
 def test_when_calculate_velocity_theta_in_first_square_then_output_accordingly():
     currect_x = 0.0
     currect_y = 0.0

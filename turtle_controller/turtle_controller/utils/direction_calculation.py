@@ -6,6 +6,8 @@ def calculate_target_theta_of_angular(
 ):
     delta_y = target_y - current_y
     delta_x = target_x - current_x
+    if -0.001 <= delta_x and delta_x <= 0.001:
+        return math.pi
     tan_target = (delta_y) / (delta_x)
     x_axis_angle = 0.5 * math.pi
     if target_x >= 0:
