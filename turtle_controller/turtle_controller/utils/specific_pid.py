@@ -21,6 +21,9 @@ class MovmentPid:
         error = distance / self._max_error
         return error
 
+    def _calculate_angular_error(self, current_theta: float, direction_theta: float) -> float:
+        return (direction_theta - current_theta) / math.pi * 2
+
     def go_to(
         self,
         current_x: float,
@@ -32,9 +35,8 @@ class MovmentPid:
         direction_theta = calculate_target_theta_of_angular(
             current_x, current_y, target_x, target_y
         )
-        print(f"{current_x} {current_y} {current_theta} {target_x} {target_y} {direction_theta}")
         error_distance = self._calculate_distance_error(current_x, current_y, target_x, target_y)
-        error_angular = (direction_theta - current_theta) / math.pi * 2
+        error_angular = self._calculate_angular_error(current_theta, direction_theta)
         calculated_speed_size = abs(self._distance_pid.calculate_output(error_distance))
         calculated_angular_speed_size = abs(self._angular_pid.calculate_output(error_angular))
         return calculated_speed_size, calculated_angular_speed_size
